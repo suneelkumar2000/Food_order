@@ -14,3 +14,4 @@ public class PasswordException extends Exception
 		return errorCode;
 	}
 }
+

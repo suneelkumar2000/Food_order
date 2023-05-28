@@ -19,7 +19,7 @@ public class CustomerImpl implements CustomerDAO {
 	public int insertCustomerDetails(Customer customer) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection con = ConnectionUtil.getConnection();
-
+		
 		boolean phone = val.phoneValidation(customer.getPhoneNumber());
 		boolean userName = val.usernameValidation(customer.getUserName());
 		boolean password = val.passwordValidation(customer.getUserName());

@@ -8,7 +8,6 @@ private String errorCode="EmailException";
 	public EmailException(String message,String error)
 	{
 		super(message);
-		
 	}
 	public String getErrorCode()
 	{
