@@ -84,6 +84,7 @@ form .txt_field {
 	width: 100%;
 }
 
+.txt_field
 .pass {
 	margin: -5px 0 20px 5px;
 	color: #a6a6a6;
@@ -118,21 +119,48 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+	<script>
+		function validate() {
+			var name = document.getElementById("name").value;
+			var regexName = /^[a-zA-Z ]+$/;
+			var password = document.getElementById("password").value;
+			var regexPassword = "admin123";
+			if (regexName.test(name) && password.match(regexPassword))
+				document.getElementById("login").style.visibility = "visible";
+			else {
+				document.getElementById("invalid").style.visibility = "visible";
+				event.preventDefault()
+			}
+		}
+	</script>
 	<div class="center">
 		<h1>Login</h1>
-		<form action="AdminLoginTest" method="Post">
+		<form action="#" method="Post">
 			<div class="txt_field">
-				<input type="text" name="name" required> <span></span> <label>user name</label>
+				<input type="text" id="name" name="name" required> <span></span>
+				<label>user name</label>
 			</div>
+
 			<div class="txt_field">
-				<input type="password" name="password" required> <span></span>
-				<label>password</label>
+				<input type="password" id="password" name="password" required>
+				<span></span> <label>password</label>
 			</div>
 			<div class="pass">Forgot Password?</div>
-			<input type="submit" value="Login">
-			<div class="space">
-			</div>
+			<input onclick="validate();" type="submit" value="Login">
+			<div class="space"></div>
 		</form>
+		<div>
+			<center>
+				<label id="invalid" style="color: red; visibility: hidden">
+					Invalid Details </label>
+			</center>
+		</div>
+		<div>
+			<center>
+				<label id="login" style="color: green; visibility: hidden">
+					valid Details</label>
+			</center>
+		</div>
 	</div>
 </body>
 </html>

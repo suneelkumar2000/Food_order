@@ -27,6 +27,7 @@ public class CustomerLoginTest extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("hi");
 		CustomerImpl cus = new CustomerImpl();
 
 		String name = request.getParameter("name");

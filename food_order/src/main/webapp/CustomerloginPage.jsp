@@ -118,32 +118,60 @@ input[type="submit"]:hover {
 	font-size: 16px;
 	color: #666666;
 }
-.signup_link a{
-color: #2691d9;
-text-decoration: none;
+
+.signup_link a {
+	color: #2691d9;
+	text-decoration: none;
 }
-.signup_link a:hover{
-text-decoration: underline;}
+
+.signup_link a:hover {
+	text-decoration: underline;
+}
 </style>
 </head>
 <body>
+	<script>
+		function validate() {
+			var name = document.getElementById("name").value;
+			var regexName = /^[a-zA-Z ]+$/;
+			var password = document.getElementById("password").value;
+			if (regexName.test(name))
+				document.getElementById("login").style.visibility = "visible";
+			else {
+				document.getElementById("invalid").style.visibility = "visible";
+				event.preventDefault()
+			}
+		}
+	</script>
 	<div class="center">
 		<h1>Login</h1>
 		<form action="CustomerLoginTest" method="get">
 			<div class="txt_field">
-				<input type="text" name="name" required> <span></span> <label>user
-					name</label>
+				<input type="text" id="name" name="name" required> <span></span>
+				<label>user name</label>
 			</div>
 			<div class="txt_field">
-				<input type="password" name="password" required> <span></span>
-				<label>password</label>
+				<input type="password" id="password" name="password" required>
+				<span></span> <label>password</label>
 			</div>
 			<div class="pass">Forgot Password?</div>
-			<input type="submit" value="Login">
+			<input onclick="validate();" type="submit" value="Login">
 			<div class="signup_link">
 				Not a member?<a href="RegisterPage.jsp">Signup</a>
 			</div>
 		</form>
+		<div>
+			<center>
+				<label id="invalid" style="color: red; visibility: hidden">
+					Invalid Details </label>
+			</center>
+		</div>
+		<div>
+			<center>
+				<label id="login" style="color: green; visibility: hidden">
+					valid Details</label>
+			</center>
+		</div>
 	</div>
 </body>
 </html>

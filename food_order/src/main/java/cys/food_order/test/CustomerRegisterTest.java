@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import cys.food_order.dao.CustomerImpl;
 import cys.food_order.model.Customer;
 import cys.food_order.validation.Validation;
-import cys.food_order.exception.EmailException;
-import cys.food_order.exception.PasswordException;
+import cys.food_order.exceptions.EmailException;
+import cys.food_order.exceptions.PasswordException;
 
 @WebServlet("/CustomerRegisterTest")
 public class CustomerRegisterTest extends HttpServlet {
